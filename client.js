@@ -15,12 +15,23 @@ const connect = function () {
   // interpret incoming data as text
   conn.setEncoding("utf8");
 
-
   conn.on('data', (data) => console.log('Message from server: ', data));
 
-  conn.on('connect', () => console.log('Successful Connection'));
-  conn.on('connect', () => conn.write('Name: MDB'));
+  conn.on('connect', () => {
+    console.log('Successful Connection');
+    conn.write('Name: MDB');
 
+    // setTimeout(() => conn.write('Move: up'), 50);
+    // setTimeout(() => conn.write('Move: up'), 100);
+    // setTimeout(() => conn.write('Move: up'), 150);
+    // setTimeout(() => conn.write('Move: up'), 200);
+});
+  // conn.on('connect', () => conn.write('Name: MDB'));
+  // conn.on('connect', () => conn.write('Move: up'));
+  // setTimeout(() => conn.on('connect', () => conn.write('Move: up'), 50));
+
+  // conn.on('connect', () => conn.write('Move: left'));
+  // conn.on('connect', () => conn.write('Move: down'));
   return conn;
 };
 
