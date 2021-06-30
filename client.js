@@ -1,15 +1,16 @@
 const net = require("net");
+const { IPLocal, PORTLocal, IPVasily, PORTVasily } = require('./constants.js');
 
 // establishes a connection with the game server
 const connect = function () {
   const conn = net.createConnection({
     // local (node):
-    host: '10.0.2.15',
-    port: '50541'
+    host: IPLocal,
+    port: PORTLocal
 
     // Vasily's:
-    // host: '135.23.223.133',
-    // port: '50542'
+    // host: IPVasily,
+    // port: PORTVasily
   });
 
   // interpret incoming data as text
